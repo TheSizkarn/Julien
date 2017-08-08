@@ -9,4 +9,3 @@ try {
 catch (Exception $e) {
     $msgErreur = $e->getMessage();
     require 'vue/vueErreur.php';
-}
