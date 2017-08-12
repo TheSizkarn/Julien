@@ -1,11 +1,28 @@
 <?php
 
-require 'modele/modele.php';
+require 'controleur/controleur.php';
 
 try {
-    $billets = getLastBillet();
-    require 'vue/vueAccueil.php';
+    if (isset($_GET['action'])) {
+        if ($_GET['action'] == 'chapitre') {
+            if (isset($_GET['id'])) {
+                $idBillet = intval($_GET['id']);
+                if ($idBillet != 0)
+                    billet($idBillet);
+                else
+                    throw new Exception("Identifiant du chapitre non valide");
+            }
+            else
+                throw new Exception("Identifiant du chapitre non défini");
+        }
+        else
+            throw new Exception("Action non valide");
+    }
+    else {
+        accueil(); // action par défaut
+    }
 }
 catch (Exception $e) {
-    $msgErreur = $e->getMessage();
-    require 'vue/vueErreur.php';
+    erreur($e->getMessage());
+
+}

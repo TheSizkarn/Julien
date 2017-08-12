@@ -2,7 +2,7 @@
 
 ob_start();
 
-foreach ($billets as $billet):
+foreach ($lastBillet as $billet):
 
 ?>
 
@@ -17,7 +17,7 @@ foreach ($billets as $billet):
 
         <p>
             <?= substr(htmlentities($billet['contenu']),0, 600); ?>...<br />
-            <em><a href="chapitre.php?id=<?= $billet['id']; ?>">Lire la suite</a></em>
+            <em><a href="<?= "index.php?action=chapitre&id=" . $billet['id'] ?>">Lire la suite</a></em>
         </p>
     </div>
 

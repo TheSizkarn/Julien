@@ -4,8 +4,8 @@
 function getLastBillet()
 {
     $bdd = getBdd();
-    $billets = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation_fr FROM chapitres ORDER BY date_creation DESC LIMIT 1');
-    return $billets;
+    $lastBillet = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation_fr FROM chapitres ORDER BY date_creation DESC LIMIT 1');
+    return $lastBillet;
 }
 
 function getBillet($idBillet)
