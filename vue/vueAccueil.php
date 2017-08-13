@@ -1,6 +1,4 @@
-<?php $titre = 'Blog de Jean Forteroche - Accueil';
-
-ob_start();
+<?php $this->titre = 'Blog de Jean Forteroche - Accueil';
 
 foreach ($lastBillet as $billet):
 
@@ -35,8 +33,4 @@ foreach ($lastBillet as $billet):
     </aside>
 </section>
 
-<?php endforeach;
-
-$contenu = ob_get_clean();
-
-require 'gabarit.php'; ?>
+<?php endforeach; ?>

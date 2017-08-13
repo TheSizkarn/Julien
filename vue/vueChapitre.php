@@ -1,6 +1,4 @@
-<?php $titre = 'Blog de Jean Forteroche - ' . $billet['titre'];
-
-ob_start(); ?>
+<?php $this->titre = 'Blog de Jean Forteroche - ' . $billet['titre']; ?>
 
 <section>
     <h3 id="titre">
@@ -40,7 +38,3 @@ ob_start(); ?>
 </div>
 
 <?php endforeach;
-
-$contenu = ob_get_clean();
-
-require 'gabarit.php'; ?>
