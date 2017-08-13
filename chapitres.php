@@ -26,7 +26,7 @@ include("securite.php");
 			while ($donnees = $req->fetch())
 			{
 			?>
-				<a href="chapitre.php?id=<?php echo $donnees['id'];?>" class="chapitresLien">
+				<a href="modele/chapitre.php?id=<?php echo $donnees['id'];?>" class="chapitresLien">
 					<div class="all_chapters">
 						<h3>
 						<?php echo htmlentities($donnees['titre']);?>

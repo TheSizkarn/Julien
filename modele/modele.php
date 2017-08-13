@@ -1,35 +1,30 @@
 <?php
 
-// Renvoie la liste de tous les chapitres, triés par date de création décroissant
-function getLastBillet()
+abstract class modele
 {
-    $bdd = getBdd();
-    $lastBillet = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation_fr FROM chapitres ORDER BY date_creation DESC LIMIT 1');
-    return $lastBillet;
-}
+    // Objet PDO d'accès à la BD
+    private $bdd;
 
-function getBillet($idBillet)
-{
-    $bdd = getBdd();
-    $billet = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation_fr FROM chapitres WHERE id=?');
-    $billet->execute(array($idBillet));
-    if ($billet->rowCount() == 1)
-        return $billet->fetch();
-    else
-        throw new Exception("Aucun chapitre ne correspond à l'identifiant '$idBillet'");
-}
+    // Exécute une requête SQL éventuellement paramétrée
+    protected function executerRequete($sql, $params = null)
+    {
+        if ($params == null) {
+            $resultat = $this->getBdd()->query($sql);   // exécution directe
+        }
+        else {
+            $resultat = $this->getBdd()->prepare($sql);     // requête préparée
+            $resultat->execute($params);
+        }
+        return $resultat;
+    }
 
-function getCommentaires($idBillet)
-{
-    $bdd = getBdd();
-    $commentaires = $bdd->prepare('SELECT id, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%i\') AS date_creation_fr FROM commentaires WHERE id_billet =? AND signalement = 0 ORDER BY date_commentaire');
-    $commentaires->execute(array($idBillet));
-    return $commentaires;
-}
-
-function getBdd()
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=db685271671;charset=utf8', 'root', '');
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    return $bdd;
+    // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
+    private function getBdd()
+    {
+        if ($this->bdd == null) {
+            // Création de la connexion
+            $this->bdd = new PDO('mysql:host=localhost;dbname=db685271671;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        }
+        return $this->bdd;
+    }
 }
