@@ -19,4 +19,12 @@ class controleurAccueil
         $vue = new vue("Accueil");
         $vue->generer(array('lastBillet' => $lastBillet));
     }
+
+    // Affiche tous les chapitres ajoutés au blog
+    public function chapitres()
+    {
+        $billets = $this->billet->getBillets();
+        $vue = new vue("Chapitres");
+        $vue->generer(array('billets' => $billets));
+    }
 }

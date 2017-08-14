@@ -34,7 +34,7 @@
             </p>
         </div>
         <div>
-            <span><a href="/signaler.php?id=<?= $commentaire['id'];?>">Signaler</a></span>
+            <span><em><a href="/signaler.php?id=<?= $commentaire['id'];?>">Signaler</a></em></span>
             <span id="date_commentaire">
                 <em>
                     <?= $commentaire['date_creation_fr'];?>

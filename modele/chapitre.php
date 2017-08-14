@@ -12,6 +12,14 @@ class chapitre extends modele
         return $lastBillet;
     }
 
+    // Renvoie la liste de tous les chapitres publiés sur le blog
+    public function getBillets()
+    {
+        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%i\') AS date_creation_fr FROM chapitres ORDER BY date_creation';
+        $billets = $this->executerRequete($sql);
+        return $billets;
+    }
+
     // Renvoie les informations sur un chapitre demandé
     public function getBillet($idBillet)
     {

@@ -35,7 +35,7 @@ class routeur
                     $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
                 }
                 elseif ($_GET['action'] == 'chapitres') {
-
+                    $this->ctrlAccueil->chapitres();
                 }
                 else
                     throw new Exception("Action non valide");

@@ -55,7 +55,7 @@ li a {
 	width: 100%;
 }
 
-section {
+section, #titreH2 {
 	width: 50%;
 	max-width: 50%;
 	margin: auto;
@@ -63,6 +63,11 @@ section {
 	flex-direction: column;
 	justify-content: space-around;
 	color: #373A40;
+}
+
+#titreH2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 section h2 {
@@ -110,7 +115,6 @@ aside a {
 .all_chapters {
 	border: 1px solid #6D747F;
 	padding: 10px;
-	margin: 10px 0;
 	text-align: justify;
 }
 
@@ -174,10 +178,6 @@ aside a {
 	width: 100px;
 }
 
-.error {
-	color: red;
-}
-
 .zone_commentary {
 	width: 50%;
 	margin: auto;
@@ -190,6 +190,10 @@ aside a {
 	padding: 10px;
 	border: thin solid #CCC;
 	border-radius: 5px;
+}
+
+#pseudo {
+	margin-top: 5px;
 }
 
 #date_commentaire {
