@@ -148,34 +148,16 @@ aside a {
 	padding-top: 10px;
 }
 
-.form_commentary {
+#formCommentary {
 	width: 50%;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
 }
 
-.form_commentary h3 {
-	margin-top: 25px;
-}
-
-form p {
-	display: flex;
-	flex-direction: column;
-}
-
-#style_auteur {
-
-}
-
-#text_auteur {
-	margin-bottom: 8px;
+#auteur {
 	width: 165px;
 	padding: 3px;
-}
-
-#commentary {
-	padding-bottom: 8px;
 }
 
 #text_commentary {
@@ -183,7 +165,6 @@ form p {
 	overflow: auto;
 	border: 0 solid transparent;
 	padding: 10px;
-	margin-bottom: 8px;
 	height: 120px;
 	width: 100%;
 	resize: none;

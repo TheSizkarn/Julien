@@ -11,7 +11,14 @@
     <em id="date_creation">Ajouté le <time><?= $billet['date_creation_fr']; ?></time></em>
 </section>
 
-<hr />
+
+<form method="post" id="formCommentary" action="index.php?action=commenter">
+    <h3>Ajouter un commentaire</h3>
+    <input id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required /><br />
+    <textarea id="text_commentary" name="contenu" required></textarea><br />
+    <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
+    <input type="submit" id="envoyer" value="Commenter" /><br />
+</form>
 
 <?php foreach ($commentaires as $commentaire): ?>
 <div class="zone_commentary">

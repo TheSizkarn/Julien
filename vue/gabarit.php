@@ -18,7 +18,7 @@
         echo '<nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="chapitres.php">Les chapitres</a></li>
+                <li><a href="index.php?action=chapitres">Les chapitres</a></li>
                 <li><a href="auteur.php">A propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="administration.php">Administration</a></li>
@@ -31,7 +31,7 @@
         echo '<nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="chapitres.php">Les chapitres</a></li>
+                <li><a href="index.php?action=chapitres">Les chapitres</a></li>
                 <li><a href="auteur.php">A propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>

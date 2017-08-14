@@ -20,7 +20,14 @@ class controleurChapitre
     {
         $billet = $this->billet->getBillet($idBillet);
         $commentaires = $this->commentaire->getCommentaires($idBillet);
-        $vue = new vue("chapitre");
+        $vue = new vue("Chapitre");
         $vue->generer(array('billet' => $billet, 'commentaires' => $commentaires));
+    }
+
+    // Ajoute un commentaire à un chapitre
+    public function commenter($auteur, $contenu, $idBillet)
+    {
+        $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
+        $this->billet($idBillet);
     }
 }

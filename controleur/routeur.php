@@ -21,21 +21,27 @@ class routeur
         try {
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'chapitre') {
-                    if (isset($_GET['id'])) {
-                        $idBillet = intval($_GET['id']);
-                        if ($idBillet != 0)
-                            $this->ctrlBillet->billet($idBillet);
-                        else
-                            throw new Exception("Identifiant du chapitre non valide");
+                    $idBillet = intval($this->getParametre($_GET, 'id'));
+                    if ($idBillet != 0) {
+                        $this->ctrlBillet->billet($idBillet);
                     }
                     else
-                        throw new Exception("Identifiant du chapitre non défini");
+                        throw new Exception("Identifiant du chapitre non valide");
+                }
+                elseif ($_GET['action'] == 'commenter') {
+                    $auteur = $this->getParametre($_POST, 'auteur');
+                    $contenu = $this->getParametre($_POST, 'contenu');
+                    $idBillet = $this->getParametre($_POST, 'id');
+                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
+                }
+                elseif ($_GET['action'] == 'chapitres') {
+
                 }
                 else
                     throw new Exception("Action non valide");
             }
             else {
-                $this->ctrlAccueil->accueil(); // action par défaut
+                $this->ctrlAccueil->accueil();
             }
         }
         catch (Exception $e) {
@@ -48,5 +54,15 @@ class routeur
     {
         $vue = new vue("Erreur");
         $vue->generer(array('msgErreur' => $msgErreur));
+    }
+
+    // Recherche un paramètre dans un tableau
+    private function getParametre($tableau, $nom)
+    {
+        if (isset($tableau[$nom])) {
+            return $tableau[$nom];
+        }
+        else
+            throw new Exception("Paramètre '$nom' absent");
     }
 }
