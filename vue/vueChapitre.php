@@ -34,7 +34,7 @@
             </p>
         </div>
         <div>
-            <span><em><a href="/signaler.php?id=<?= $commentaire['id'];?>">Signaler</a></em></span>
+            <span><em><a href=<?= "index.php?action=signaler&id_billet=" . $billet['id'] . "&id_commentaire=" . $commentaire['id'] ?>>Signaler</a></em></span>
             <span id="date_commentaire">
                 <em>
                     <?= $commentaire['date_creation_fr'];?>

@@ -18,4 +18,11 @@ class commentaire extends modele
         $sql = 'INSERT INTO commentaires(date_commentaire, auteur, commentaire, id_billet)' . ' values(NOW(), ?, ?, ?)';
         $this->executerRequete($sql, array($auteur, $contenu, $idBillet));
     }
+
+    // Signaler un commentaire dans la base
+    public function signalement($idBillet)
+    {
+        $sql = 'UPDATE commentaires SET signalement = 1 WHERE id =?';
+        $this->executerRequete($sql, array($idBillet));
+    }
 }

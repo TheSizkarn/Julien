@@ -30,4 +30,11 @@ class controleurChapitre
         $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
         $this->billet($idBillet);
     }
+
+    public function signaler($idCommentaire, $idBillet)
+    {
+        $this->commentaire->signalement($idCommentaire);
+        $this->billet($idBillet);
+
+    }
 }

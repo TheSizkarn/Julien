@@ -37,6 +37,11 @@ class routeur
                 elseif ($_GET['action'] == 'chapitres') {
                     $this->ctrlAccueil->chapitres();
                 }
+                elseif ($_GET['action'] == 'signaler') {
+                    $idBillet = $this->getParametre($_GET, 'id_billet');
+                    $idCommentaire = $this->getParametre($_GET, 'id_commentaire');
+                    $this->ctrlBillet->signaler($idCommentaire, $idBillet);
+                }
                 else
                     throw new Exception("Action non valide");
             }
