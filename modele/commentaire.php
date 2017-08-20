@@ -20,9 +20,9 @@ class commentaire extends modele
     }
 
     // Signaler un commentaire dans la base
-    public function signalement($idBillet)
+    public function signalement($idBillet, $idCommentaire)
     {
         $sql = 'UPDATE commentaires SET signalement = 1 WHERE id =?';
-        $this->executerRequete($sql, array($idBillet));
+        $this->executerRequete($sql, array($idBillet, $idCommentaire));
     }
 }

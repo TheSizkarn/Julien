@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
+    <base href="<?= $racineWeb ?>">
     <title><?= $titre ?></title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -18,7 +19,7 @@
         echo '<nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="index.php?action=chapitres">Les chapitres</a></li>
+                <li><a href="chapitre/index">Les chapitres</a></li>
                 <li><a href="auteur.php">A propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="administration.php">Administration</a></li>
@@ -31,7 +32,7 @@
         echo '<nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="index.php?action=chapitres">Les chapitres</a></li>
+                <li><a href="chapitres/index">Les chapitres</a></li>
                 <li><a href="auteur.php">A propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>

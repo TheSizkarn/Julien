@@ -1,10 +1,10 @@
 <?php
 
-require_once 'framework/chapitre.php';
-require_once 'framework/commentaire.php';
-require_once 'vue/vue.php';
+require_once 'framework/Controleur.php';
+require_once 'modele/commentaire.php';
+require_once 'modele/chapitre.php';
 
-class controleurChapitre
+class ControleurChapitre extends Controleur
 {
     private $billet;
     private $commentaire;
@@ -16,26 +16,37 @@ class controleurChapitre
     }
 
     // Affiche les détails sur un chapitre
-    public function billet($idBillet)
+    public function index()
     {
+        $idBillet = $this->requete->getParametre("id");
+
         $billet = $this->billet->getBillet($idBillet);
         $commentaires = $this->commentaire->getCommentaires($idBillet);
-        $vue = new vue("Chapitre");
-        $vue->generer(array('billet' => $billet, 'commentaires' => $commentaires));
+
+        $this->genererVue(array('billet' => $billet, 'commentaires' => $commentaires));
     }
 
     // Ajoute un commentaire à un chapitre
-    public function commenter($auteur, $contenu, $idBillet)
+    public function commenter()
     {
+        $idBillet = $this->requete->getParametre("id");
+        $auteur = $this->requete->getParametre("auteur");
+        $contenu = $this->requete->getParametre("contenu");
+
         $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
-        $this->billet($idBillet);
+
+        // Exécution de l'action par défaut pour actualiser la liste des billets
+        $this->executerAction("index");
     }
 
     // Signaler un commentaire
-    public function signaler($idCommentaire, $idBillet)
+    public function signaler()
     {
-        $this->commentaire->signalement($idCommentaire);
-        $this->billet($idBillet);
+        $idCommentaire = $this->requete->getParametre("id_commentaire");
+        $idBillet = $this->requete->getParametre("id_billet");
+        $this->commentaire->signalement($idCommentaire, $idBillet);
+
+        $this->executerAction("index");
 
     }
 }

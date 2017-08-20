@@ -3,7 +3,7 @@
 require_once 'framework/Controleur.php';
 require_once 'modele/chapitre.php';
 
-class ControleurAccueil extends Controleur
+class ControleurChapitres extends Controleur
 {
     private $billet;
 
@@ -12,15 +12,8 @@ class ControleurAccueil extends Controleur
         $this->billet = new chapitre();
     }
 
-    // Affiche le dernier chapitre ajouté au blog
-    public function index()
-    {
-        $lastBillet = $this->billet->getLastBillet();
-        $this->genererVue(array('lastBillet' => $lastBillet));
-    }
-
     // Affiche tous les chapitres ajoutés au blog
-    public function chapitres()
+    public function index()
     {
         $billets = $this->billet->getBillets();
         $this->genererVue(array('billets' => $billets));

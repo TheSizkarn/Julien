@@ -1,5 +1,7 @@
 <?php
 
+require_once 'configuration.php';
+
 class vue
 {
     // Nom du fichier associé à la vue
@@ -22,8 +24,9 @@ class vue
     {
         // Génération de la partie spécifique de la vue
         $contenu = $this->genererFichier($this->fichier, $donnees);
+        $racineWeb = configuration::get("racineWeb", "/");
         // Génération du gabarit commun utilisant la partie spécifique
-        $vue = $this->genererFichier('vue/gabarit.php', array('titre' => $this->titre, 'contenu' => $contenu));
+        $vue = $this->genererFichier('vue/gabarit.php', array('titre' => $this->titre, 'contenu' => $contenu, 'racineWeb' => $racineWeb));
         // Renvoie de la vue au navigateur
         echo $vue;
     }
@@ -46,4 +49,7 @@ class vue
             throw new Exception("Fichier '$fichier' introuvable");
         }
     }
+
+    // Nettoie une valeur insérée dans une page HTML
+
 }

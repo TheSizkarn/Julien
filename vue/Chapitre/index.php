@@ -12,7 +12,7 @@
 </section>
 
 
-<form method="post" id="formCommentary" action="index.php?action=commenter">
+<form method="post" id="formCommentary" action="chapitre/commenter">
     <h3>Ajouter un commentaire</h3>
     <input id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required /><br />
     <textarea id="text_commentary" name="contenu" required></textarea><br />
@@ -34,7 +34,7 @@
             </p>
         </div>
         <div>
-            <span><em><a href=<?= "index.php?action=signaler&id_billet=" . $billet['id'] . "&id_commentaire=" . $commentaire['id'] ?>>Signaler</a></em></span>
+            <span><em><a href=<?= "chapitre/signaler/" . $billet['id'] . "/" . $commentaire['id'] ?>>Signaler</a></em></span>
             <span id="date_commentaire">
                 <em>
                     <?= $commentaire['date_creation_fr'];?>
