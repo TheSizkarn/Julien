@@ -1,7 +1,7 @@
 <?php
 
-require_once 'modele/chapitre.php';
-require_once 'modele/commentaire.php';
+require_once 'framework/chapitre.php';
+require_once 'framework/commentaire.php';
 require_once 'vue/vue.php';
 
 class controleurChapitre
@@ -31,6 +31,7 @@ class controleurChapitre
         $this->billet($idBillet);
     }
 
+    // Signaler un commentaire
     public function signaler($idCommentaire, $idBillet)
     {
         $this->commentaire->signalement($idCommentaire);

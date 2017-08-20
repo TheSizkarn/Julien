@@ -1,6 +1,6 @@
 <?php
 
-require_once 'modele/chapitre.php';
+require_once 'framework/chapitre.php';
 require_once 'vue/vue.php';
 
 class controleurAccueil
