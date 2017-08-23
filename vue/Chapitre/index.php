@@ -34,7 +34,15 @@
             </p>
         </div>
         <div>
-            <span><em><a href=<?= "chapitre/signaler/" . $billet['id'] . "/" . $commentaire['id'] ?>>Signaler</a></em></span>
+            <span>
+                <em>
+                    <form method="post" action="chapitre/signaler">
+                        <input type="hidden" name="idBillet" value="<?= $billet['id']?>" />
+                        <input type="hidden" name="idCommentaire" value="<?= $commentaire['id']?>" />
+                        <input type="submit" value="Signaler" />
+                    </form>
+                </em>
+            </span>
             <span id="date_commentaire">
                 <em>
                     <?= $commentaire['date_creation_fr'];?>

@@ -1,13 +1,17 @@
 <?php
 
+require_once 'Session.php';
+
 class requete
 {
     // paramètres de la requête
     private $parametres;
+    private $session;
 
     public function __construct($parametres)
     {
         $this->parametres = $parametres;
+        $this->session = new Session();
     }
 
     // Renvoie vrai si le paramètre existe dans la requête
@@ -24,6 +28,12 @@ class requete
         }
         else
             throw new Exception("Paramètre '$nom' absent de la requête");
+    }
+
+    // Renvoie l'objet session associé à la requête
+    public function getSession()
+    {
+        return $this->session;
     }
 
 

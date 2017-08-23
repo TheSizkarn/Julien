@@ -20,9 +20,18 @@ class commentaire extends modele
     }
 
     // Signaler un commentaire dans la base
-    public function signalement($idBillet, $idCommentaire)
+    public function signalement($idCommentaire)
     {
         $sql = 'UPDATE commentaires SET signalement = 1 WHERE id =?';
-        $this->executerRequete($sql, array($idBillet, $idCommentaire));
+        $this->executerRequete($sql, array($idCommentaire));
+    }
+
+    // Renvoie le nombre de commentaire
+    public function getNombreCommentaires()
+    {
+        $sql = 'SELECT count(*) as nbCommentaires FROM commentaires';
+        $resultat = $this->executerRequete($sql);
+        $ligne = $resultat->fetch();
+        return $ligne['nbCommentaires'];
     }
 }

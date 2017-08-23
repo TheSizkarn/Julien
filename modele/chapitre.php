@@ -30,4 +30,13 @@ class chapitre extends modele
         else
             throw new Exception("Aucun chapitre ne correspond à l'identifiant '$idBillet'");
     }
+
+    // Renvoie le nombre total de chapitres
+    public function getNombreBillet()
+    {
+        $sql = 'SELECT count(*) as nbBillets FROM chapitres';
+        $resultat = $this->executerRequete($sql);
+        $ligne = $resultat->fetch(); // Le résultat comporte toujours 1 ligne
+        return $ligne['nbBillets'];
+    }
 }

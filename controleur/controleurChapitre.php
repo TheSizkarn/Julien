@@ -42,11 +42,11 @@ class ControleurChapitre extends Controleur
     // Signaler un commentaire
     public function signaler()
     {
-        $idCommentaire = $this->requete->getParametre("id_commentaire");
-        $idBillet = $this->requete->getParametre("id_billet");
-        $this->commentaire->signalement($idCommentaire, $idBillet);
+        $idBillet = $this->requete->getParametre("idBillet");
+        $idCommentaire = $this->requete->getParametre("idCommentaire");
+        $this->commentaire->signalement($idCommentaire);
 
-        $this->executerAction("index");
+        $this->rediriger("chapitre", "index/" .$idBillet);
 
     }
 }
