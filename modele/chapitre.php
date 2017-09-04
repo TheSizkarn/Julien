@@ -39,4 +39,25 @@ class chapitre extends modele
         $ligne = $resultat->fetch(); // Le résultat comporte toujours 1 ligne
         return $ligne['nbBillets'];
     }
+
+    // Ajouter un chapitre
+    public function addBillet($titre, $contenu)
+    {
+        $sql = 'INSERT INTO chapitres(titre, contenu, date_creation)' . 'VALUES(?, ?, NOW())';
+        $this->executerRequete($sql, array($titre, $contenu));
+    }
+
+    // Supprimer un chapitre
+    public function deleteBillet($idBillet)
+    {
+        $sql = 'DELETE FROM chapitres WHERE id=?';
+        $this->executerRequete($sql, array($idBillet));
+    }
+
+    // Modifier un chapitre
+    public function modifBillet($titre, $contenu, $idBillet)
+    {
+        $sql = 'UPDATE chapitres SET titre=?, contenu=? WHERE id=?';
+        $this->executerRequete($sql, array($titre, $contenu, $idBillet));
+    }
 }

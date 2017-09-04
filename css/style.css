@@ -214,3 +214,32 @@ footer {
 footer p {
 	margin: auto;
 }
+
+#login {
+	color: white;
+}
+
+#adminContainer {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+#adminBillets2 {
+	border-bottom: thin solid #CCC;
+	border-radius: 5px;
+	padding-bottom: 20px;
+	max-width: 85%;
+}
+
+#adminCommentaire2 {
+	border-bottom: thin solid #CCC;
+	border-radius: 5px;
+	padding-bottom: 20px;
+	max-width: 280px;
+	word-wrap: break-word;
+}
+
+#titreChapitre {
+	margin-bottom: 10px;
+}

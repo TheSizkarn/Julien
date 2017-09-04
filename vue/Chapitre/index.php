@@ -2,11 +2,11 @@
 
 <section>
     <h3 id="titre">
-        <?= htmlspecialchars($billet['titre']);?>
+        <?= strip_tags($billet['titre']);?>
     </h3>
 
     <p id="contenu">
-        <?= htmlspecialchars($billet['contenu']);?>
+        <?= strip_tags($billet['contenu']);?>
     </p>
     <em id="date_creation">Ajouté le <time><?= $billet['date_creation_fr']; ?></time></em>
 </section>
@@ -15,10 +15,11 @@
 <form method="post" id="formCommentary" action="chapitre/commenter">
     <h3>Ajouter un commentaire</h3>
     <input id="auteur" name="auteur" type="text" placeholder="Votre pseudo" required /><br />
-    <textarea id="text_commentary" name="contenu" required></textarea><br />
+    <textarea id="text_commentary" name="contenu" placeholder="Votre commentaire" required></textarea><br />
     <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
     <input type="submit" id="envoyer" value="Commenter" /><br />
 </form>
+
 
 <?php foreach ($commentaires as $commentaire): ?>
 <div class="zone_commentary">

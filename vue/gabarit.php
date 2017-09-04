@@ -5,6 +5,20 @@
     <base href="<?= $racineWeb ?>">
     <title><?= $titre ?></title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#tinymce',
+            language: 'fr_FR',
+            elements : "text",
+
+            forced_root_block : false,
+            force_br_newlines : false,
+            force_span_newlines : false,
+            force_div_newlines : false,
+            force_p_newlines : false
+        });
+    </script>
 </head>
 <body>
 
@@ -14,16 +28,16 @@
     </header>
 
     <?php
-    if (isset($_SESSION['mdp']) AND $_SESSION['mdp'] == "test")
+    if (isset($_SESSION['login']) AND $_SESSION['login'] != "")
     {
         echo '<nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="chapitre/index">Les chapitres</a></li>
+                <li><a href="chapitres/index">Les chapitres</a></li>
                 <li><a href="auteur.php">A propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
-                <li><a href="administration.php">Administration</a></li>
-                <li><a href="logout.php">Déconnexion</a></li>
+                <li><a href="admin/index">Administration</a></li>
+                <li><a href="connexion/deconnecter">Déconnexion</a></li>
             </ul>
 	    </nav>';
     }
@@ -33,8 +47,8 @@
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="chapitres/index">Les chapitres</a></li>
-                <li><a href="auteur.php">A propos</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="auteur/index">A propos</a></li>
+                <li><a href="contact/index">Contact</a></li>
             </ul>
 	    </nav>';
     }
@@ -45,7 +59,7 @@
     </div>
 
     <footer>
-        <p>Copyright Jean Forteroche - Tous droits réservés</p>
+        <p>Copyright <a href="connexion" id="login">Jean Forteroche</a> - Tous droits réservés</p>
     </footer>
 
 </body>

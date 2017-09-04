@@ -45,7 +45,6 @@ class ControleurChapitre extends Controleur
         $idBillet = $this->requete->getParametre("idBillet");
         $idCommentaire = $this->requete->getParametre("idCommentaire");
         $this->commentaire->signalement($idCommentaire);
-
         $this->rediriger("chapitre", "index/" .$idBillet);
 
     }

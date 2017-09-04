@@ -13,7 +13,7 @@
             </h3>
 
             <p>
-                <?= substr(htmlspecialchars($billet['contenu']),0, 600);?>...
+                <?= substr(strip_tags($billet['contenu']),0, 600);?>...
                 <br />
                 <em>Lire la suite</em>
             </p>
