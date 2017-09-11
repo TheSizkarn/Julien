@@ -4,16 +4,19 @@ require_once 'framework/Controleur.php';
 require_once 'ControleurSecurise.php';
 require_once 'modele/chapitre.php';
 require_once 'modele/commentaire.php';
+require_once 'modele/utilisateur.php';
 
 class ControleurAdmin extends ControleurSecurise
 {
     private $billet;
     private $commentaire;
+    private $user;
 
     public function __construct()
     {
         $this->billet = new chapitre();
         $this->commentaire = new commentaire();
+        $this->user = new utilisateur();
     }
 
     public function index()
@@ -75,5 +78,22 @@ class ControleurAdmin extends ControleurSecurise
         $this->billet->deleteBillet($idBillet);
 
         $this->executerAction("index");
+    }
+
+    public function modifierPassword()
+    {
+        $passwordModifier = $this->requete->getParametre('passwordModifier');
+        $confirmPasswordModifer = $this->requete->getParametre('confirmPasswordModifier');
+        if (empty($passwordModifier) || empty($confirmPasswordModifer))
+        {
+
+        }
+        elseif ($passwordModifier == $confirmPasswordModifer)
+        {
+            $hash = password_hash($passwordModifier,PASSWORD_BCRYPT);
+            $this->user->modifPassword($hash);
+            $this->rediriger("admin", "index");
+        }
+
     }
 }

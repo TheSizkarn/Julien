@@ -2,6 +2,9 @@ body {
 	margin: 0;
 	background-color: whitesmoke;
 	font-family: Georgia;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 header {
@@ -29,7 +32,6 @@ nav {
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	margin: auto;
 	background-color: #A4AEBF;
 }
 nav ul {
@@ -53,6 +55,7 @@ li a {
 
 #container {
 	width: 100%;
+	flex: 1 0 auto;
 }
 
 section, #titreH2 {
@@ -143,6 +146,8 @@ aside a {
 	text-align: justify;
 	width: 525px;
 	margin: auto;
+	background-color: snow;
+	padding: 20px;
 }
 
 #date_creation {
@@ -242,4 +247,24 @@ footer p {
 
 #titreChapitre {
 	margin-bottom: 10px;
+}
+
+.modifier {
+	padding:6px 5px 6px 5px;
+	font:bold 13px Arial;
+	background:#373A40;
+	color:#fff;
+	border-radius:2px;
+	width:100px;
+	border:none;
+}
+
+.supprimer {
+	padding:6px 5px 6px 5px;
+	font:Bold 13px Arial;
+	background:#A4AEBF;
+	color:#fff;
+	width:90px;
+	border-radius:2px;
+	border:none;
 }

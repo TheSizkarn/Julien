@@ -49,7 +49,4 @@ class vue
             throw new Exception("Fichier '$fichier' introuvable");
         }
     }
-
-    // Nettoie une valeur insérée dans une page HTML
-
 }

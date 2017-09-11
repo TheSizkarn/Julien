@@ -34,8 +34,8 @@
             <ul>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="chapitres/index">Les chapitres</a></li>
-                <li><a href="auteur.php">A propos</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="auteur/index">A propos</a></li>
+                <li><a href="contact/index">Contact</a></li>
                 <li><a href="admin/index">Administration</a></li>
                 <li><a href="connexion/deconnecter">Déconnexion</a></li>
             </ul>

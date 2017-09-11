@@ -28,30 +28,39 @@
         ?>
     </div>
 
-<div id="adminContainer">
-    <div id="adminBillets">
-        <h3>Les chapitres publiés</h3>
-        <?php foreach ($billets as $billet): ?>
-            <div id="adminBillets2">
-                <h5><?= htmlspecialchars($billet['titre']);?></h5>
-                <p><?= substr(strip_tags($billet['contenu']),0, 50);?>...</p>
-                <a href=<?="admin/modifierChapitre/" . $billet['id'];?>>Modifier</a>
-                <a href=<?="admin/supprimerChapitre/" . $billet['id'];?>>Supprimer</a>
-            </div>
-        <?php endforeach; ?>
-    </div>
+    <div id="adminContainer">
+        <div id="adminBillets">
+            <h3>Les chapitres publiés</h3>
+            <?php foreach ($billets as $billet): ?>
+                <div id="adminBillets2">
+                    <h5><?= htmlspecialchars($billet['titre']);?></h5>
+                    <p><?= substr(strip_tags($billet['contenu']),0, 50);?>...</p>
+                    <a class="modifier" href=<?="admin/modifierChapitre/" . $billet['id'];?>>Modifier</a>
+                    <a class="supprimer" href=<?="admin/supprimerChapitre/" . $billet['id'];?>>Supprimer</a>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-    <div id="adminCommentaires">
-        <h3>Les commentaires signalés</h3>
-        <?php foreach ($commentairesSignale as $commentaire): ?>
-            <div id="adminCommentaire2">
-                <h5><?= htmlspecialchars($commentaire['auteur']);?></h5>
-                <p><?= htmlspecialchars($commentaire['commentaire']);?></p>
-                <a href=<?="admin/accepter/" . $commentaire['id'];?>>Accepter</a>
-                <a href=<?="admin/supprimerCom/" . $commentaire['id'];?>>Supprimer</a>
-            </div>
-        <?php endforeach; ?>
+        <div id="adminCommentaires">
+            <h3>Les commentaires signalés</h3>
+            <?php foreach ($commentairesSignale as $commentaire): ?>
+                <div id="adminCommentaire2">
+                    <h5><?= htmlspecialchars($commentaire['auteur']);?></h5>
+                    <p><?= htmlspecialchars($commentaire['commentaire']);?></p>
+                    <a class="modifier" href=<?="admin/accepter/" . $commentaire['id'];?>>Accepter</a>
+                    <a class="supprimer" href=<?="admin/supprimerCom/" . $commentaire['id'];?>>Supprimer</a>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
-
+    <div id="modifierMdp">
+        <form method="post" action="admin/modifierPassword">
+            <fieldset>
+                <legend>Modifier le mot de passe</legend>
+                <input type="password" name="passwordModifier" placeholder="Votre nouveau mot de passe" required/>
+                <input type="password" name="confirmPasswordModifier" placeholder="Confirmer votre mot de passe" required />
+                <input type="submit" name="modifierPassword" value="Modifier" />
+            </fieldset>
+        </form>
+    </div>
 </section>
